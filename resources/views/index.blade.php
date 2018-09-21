@@ -46,7 +46,8 @@
     <link rel="stylesheet" href="{{ URL::asset('public/fonts/flaticon/font/flaticon.css') }}">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="{{ URL::asset('public/css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('public/css/style.css') }}?{{date('YmdHis')}}">
+    <link rel="stylesheet" href="{{ URL::asset('public/css/custom.css') }}?{{date('YmdHis')}}">
 
     <!-- Modernizr JS -->
     <script src="{{ URL::asset('public/js/modernizr-2.6.2.min.js') }}"></script>
@@ -109,66 +110,22 @@
                 </div>
             </div>
         </nav>
-        <aside id="colorlib-hero">
+        <aside id="app-hero">
             <div class="flexslider">
-                <ul class="slides">
-                <li style="background-image: url(images/img_bg_5.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
-                                <div class="slider-text-inner text-center">
-                                    <h2>Welcome to the luxehotel</h2>
-                                    <h1>A Luxury Hotel</h1>
-                                        <p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li style="background-image: url(images/img_bg_1.jpg);">
-                    <div class="overlay"></div>
+                <div class="overlay"></div>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
                                 <div class="slider-text-inner text-center">
                                     <h2>Discover &amp; Enjoy</h2>
                                     <h1>Everything you need in luxehotel</h1>
-                                        <p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
+                                        <p>    
+                                            <button class="btn btn-primary btn-signin" data-toggle="modal" data-target="#myModal">Sign In</button>     
+                                            <button class="btn btn-primary btn-signup" >Sign Up</button></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li style="background-image: url(images/img_bg_3.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container-fluids">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
-                                <div class="slider-text-inner text-center">
-                                    <h2>You are invited</h2>
-                                    <h1>We know how to please you</h1>
-                                        <p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li style="background-image: url(images/img_bg_4.jpg);">
-                    <div class="overlay"></div>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-md-offset-3 slider-text">
-                                <div class="slider-text-inner text-center">
-                                    <h2>Come &amp; enjoy the unforgetable nights</h2>
-                                    <h1>In the heart of luxehotel</h1>
-                                        <p><a class="btn btn-primary btn-demo" href="#"></i> View Detail</a> <a class="btn btn-primary btn-learn">Know More</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>       
-                </ul>
             </div>
         </aside>
         <div id="colorlib-reservation">
@@ -182,7 +139,7 @@
                             <label for="date">Check-in:</label>
                             <div class="form-field">
                               <i class="icon icon-calendar2"></i>
-                              <input type="text" id="date" class="form-control date" placeholder="Check-in date">
+                              <input type="text" id="checkindate" class="form-control date" placeholder="Check-in date">
                             </div>
                           </div>
                         </div>
@@ -191,7 +148,7 @@
                             <label for="date">Check-out:</label>
                             <div class="form-field">
                               <i class="icon icon-calendar2"></i>
-                              <input type="text" id="date" class="form-control date" placeholder="Check-out date">
+                              <input type="text" id="checkoutdate" class="form-control date" placeholder="Check-out date">
                             </div>
                           </div>
                         </div>
@@ -200,7 +157,7 @@
                             <label for="adults">Adults</label>
                             <div class="form-field">
                               <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control">
+                              <select name="people" id="no_of_adults" class="form-control">
                                 <option value="#">1</option>
                                 <option value="#">2</option>
                                 <option value="#">3</option>
@@ -215,7 +172,7 @@
                             <label for="children">Children</label>
                             <div class="form-field">
                               <i class="icon icon-arrow-down3"></i>
-                              <select name="people" id="people" class="form-control">
+                              <select name="people" id="no_of_children" class="form-control">
                                 <option value="#">1</option>
                                 <option value="#">2</option>
                                 <option value="#">3</option>
@@ -291,7 +248,8 @@
                     <div class="col-md-12 animate-box">
                         <div class="owl-carousel owl-carousel2">
                             <div class="item">
-                                <a href="images/room-1.jpg" class="room image-popup-link" style="background-image: url(images/room-1.jpg);"></a>
+                                <!-- <a href="images/room-1.jpg" class="room image-popup-link" style="background-image: url(images/room-1.jpg);"></a> -->
+                                <a href="" class="room image-popup-link" ></a>
                                 <div class="desc text-center">
                                     <span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span>
                                     <h3><a href="rooms-suites.html">Suite</a></h3>
@@ -309,7 +267,8 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="images/room-2.jpg" class="room image-popup-link" style="background-image: url(images/room-2.jpg);"></a>
+                                <!-- <a href="images/room-2.jpg" class="room image-popup-link" style="background-image: url(images/room-2.jpg);"></a> -->
+                                <a href="" class="room image-popup-link" ></a>
                                 <div class="desc text-center">
                                     <span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
                                     <h3><a href="rooms-suites.html">Double Room</a></h3>
@@ -327,7 +286,8 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="images/room-3.jpg" class="room image-popup-link" style="background-image: url(images/room-3.jpg);"></a>
+                                <!-- <a href="images/room-3.jpg" class="room image-popup-link" style="background-image: url(images/room-3.jpg);"></a> -->
+                                <a href="" class="room image-popup-link" ></a>
                                 <div class="desc text-center">
                                     <span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
                                     <h3><a href="rooms-suites.html">Family Room</a></h3>
@@ -345,7 +305,8 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="images/room-4.jpg" class="room image-popup-link" style="background-image: url(images/room-4.jpg);"></a>
+                                <!-- <a href="images/room-4.jpg" class="room image-popup-link" style="background-image: url(images/room-4.jpg);"></a> -->
+                                <a href="" class="room image-popup-link" ></a>
                                 <div class="desc text-center">
                                     <span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
                                     <h3><a href="rooms-suites.html">Classic Double Room</a></h3>
@@ -363,7 +324,8 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="images/room-5.jpg" class="room image-popup-link" style="background-image: url(images/room-5.jpg);"></a>
+                                <!-- <a href="images/room-5.jpg" class="room image-popup-link" style="background-image: url(images/room-5.jpg);"></a> -->
+                                <a href="" class="room image-popup-link" ></a>
                                 <div class="desc text-center">
                                     <span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
                                     <h3><a href="rooms-suites.html">Superior Double Room</a></h3>
@@ -381,7 +343,8 @@
                                 </div>
                             </div>
                             <div class="item">
-                                <a href="images/room-6.jpg" class="room image-popup-link" style="background-image: url(images/room-6.jpg);"></a>
+                                <!-- <a href="images/room-6.jpg" class="room image-popup-link" style="background-image: url(images/room-6.jpg);"></a> -->
+                                <a href="" class="room image-popup-link" ></a>
                                 <div class="desc text-center">
                                     <span class="rate-star"><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full full"></i><i class="icon-star-full"></i></span>
                                     <h3><a href="rooms-suites.html">Superior Family Room</a></h3>
@@ -551,7 +514,8 @@
                                 </div>
                         </div>
                      </div><!-- end half -->
-                     <div class="half diningbar-img" style="background-image: url(images/cover_img_1.jpg);"></div><!-- end half -->
+                     <!-- <div class="half diningbar-img" style="background-image: url(images/cover_img_1.jpg);"></div><!-- end half --> -->
+                     <div class="half diningbar-img"></div><!-- end half -->
                   </div>
                </div>
           </div>
@@ -567,7 +531,8 @@
                     </div>
                 </div>
                 <div class="blog-flex">
-                    <div class="video colorlib-video" style="background-image: url(images/blog-3.jpg);">
+                    <!-- <div class="video colorlib-video" style="background-image: url(images/blog-3.jpg);"> -->
+                        <div class="video colorlib-video">
                         <a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-video"></i></a>
                         <div class="overlay"></div>
                     </div>
@@ -575,7 +540,8 @@
                         <div class="row">
                             <div class="col-md-12 animate-box">
                                 <a href="blog.html" class="blog-post">
-                                    <span class="img" style="background-image: url(images/blog-1.jpg);"></span>
+                                    <!-- <span class="img" style="background-image: url(images/blog-1.jpg);"></span> -->
+                                    <span class="img"></span>
                                     <div class="desc">
                                         <span class="date">January 14, 2018</span>
                                         <h3>A Definitive Guide to the Best Dining</h3>
@@ -585,7 +551,8 @@
                             </div>
                             <div class="col-md-12 animate-box">
                                 <a href="blog.html" class="blog-post">
-                                    <span class="img" style="background-image: url(images/blog-2.jpg);"></span>
+                                    <!-- <span class="img" style="background-image: url(images/blog-2.jpg);"></span> -->
+                                    <span class="img"></span>
                                     <div class="desc">
                                         <span class="date">January 14, 2018</span>
                                         <h3>How These 5 People Found The Path to Their Dream Trip</h3>
@@ -595,7 +562,8 @@
                             </div>
                             <div class="col-md-12 animate-box">
                                 <a href="blog.html" class="blog-post">
-                                    <span class="img" style="background-image: url(images/blog-3.jpg);"></span>
+                                    <!-- <span class="img" style="background-image: url(images/blog-3.jpg);"></span> -->
+                                    <span class="img"></span>
                                     <div class="desc">
                                         <span class="date">January 14, 2018</span>
                                         <h3>Our Secret Island Boat Tour Is just for You</h3>
@@ -624,7 +592,8 @@
                 <div class="row">
                 <div class="col-md-4 animate-box">
                     <div class="testimony text-center">
-                        <span class="img-user" style="background-image: url(images/person2.jpg);"></span>
+                        <!-- <span class="img-user" style="background-image: url(images/person2.jpg);"></span> -->
+                        <span class="img-user"></span>
                         <span class="user">Brian Doe</span>
                         <small>Satisfied Customer</small>
                         <blockquote>
@@ -634,7 +603,8 @@
                 </div>
                 <div class="col-md-4 animate-box">
                     <div class="testimony text-center">
-                        <span class="img-user" style="background-image: url(images/person1.jpg);"></span>
+                        <!-- <span class="img-user" style="background-image: url(images/person1.jpg);"></span> -->
+                        <span class="img-user"></span>
                         <span class="user">Nathalie Miller</span>
                         <small>Satisfied Customer</small>
                         <blockquote>
@@ -644,7 +614,8 @@
                 </div>
                 <div class="col-md-4 animate-box">
                     <div class="testimony text-center">
-                        <span class="img-user" style="background-image: url(images/person3.jpg);"></span>
+                        <!-- <span class="img-user" style="background-image: url(images/person3.jpg);"></span> -->
+                        <span class="img-user"></span>
                         <span class="user">Shara Jones</span>
                         <small>Satisfied Customer</small>
                         <blockquote>
@@ -657,7 +628,8 @@
         </div>
 
     
-        <div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);">
+        <!-- <div id="colorlib-subscribe" style="background-image: url(images/img_bg_2.jpg);"> -->
+            <div id="colorlib-subscribe">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
@@ -669,7 +641,7 @@
                             <div class="row">
                                 <div class="col-md-12 col-md-offset-0">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="email" placeholder="Enter your email">
+                                        <input type="text" class="form-control" id="newsletter_email" placeholder="Enter your email">
                                         <button type="submit" class="btn btn-primary">Subscribe</button>
                                     </div>
                                 </div>
@@ -728,9 +700,8 @@
                     <div class="col-md-12 text-center">
                         <p>
                             <small class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart3" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small> 
-                            <small class="block">Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></small>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved </small> 
+                            
                         </p>
                     </div>
                 </div>
@@ -741,6 +712,134 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <div class="gototop js-top">
         <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
     </div>
+
+     <!-- Large modal -->
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×</button>
+                    <h4 class="modal-title" id="myModalLabel">&nbsp;</h4>
+                        
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs signup">
+                                <li id="modal-login" class="active"><a href="#Login" data-toggle="tab">Login</a></li>
+                                <li id="modal-signup"><a href="#Registration" data-toggle="tab">Registration</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="Login">
+                                    <form role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">
+                                            Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="email1" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1" class="col-sm-2 control-label">
+                                            Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                Submit</button>
+                                            <a href="javascript:;">Forgot your password?</a>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="Registration">
+                                    <form role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">
+                                            Name</label>
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <select class="form-control">
+                                                        <option>Mr.</option>
+                                                        <option>Ms.</option>
+                                                        <option>Mrs.</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" placeholder="Name" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-2 control-label">
+                                            Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="emailaddress" placeholder="Email" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mobile" class="col-sm-2 control-label">
+                                            Mobile</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="mobile" placeholder="Mobile" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-sm-2 control-label">
+                                            Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control" id="password" placeholder="Password" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <button type="button" class="btn btn-primary btn-sm">
+                                                Save & Continue</button>
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                Cancel</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="OR" class="hidden-xs">
+                                OR</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row text-center sign-with">
+                                <div class="col-md-12">
+                                    <h3>
+                                        Sign in with</h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="btn-group btn-group-justified">
+                                        <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
+                                            Google</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     
     <!-- jQuery -->
     <script src="{{ URL::asset('public/js/jquery.min.js') }}"></script>
@@ -762,6 +861,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Main -->
     <script src="{{ URL::asset('public/js/main.js') }}"></script>
 
+    <script src="{{ URL::asset('public/js/custom.js') }}"></script>
+
     </body>
 </html>
-
+<script>
+    $(document).ready(function(){
+        $('#btn-signup').click(function(){
+            console.log('sdsadas')
+            $('#modal-login').removeClass('active')
+            $('#modal-login').removeClass('active')
+            $('#myModal').removeClass('fade');
+            $('#myModal').css('display','block');
+        });
+    });
+</script>
