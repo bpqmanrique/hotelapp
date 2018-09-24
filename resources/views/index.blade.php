@@ -120,7 +120,7 @@
                                     <h2>Discover &amp; Enjoy</h2>
                                     <h1>Everything you need in luxehotel</h1>
                                         <p>    
-                                            <button class="btn btn-primary btn-signin" data-toggle="modal" data-target="#myModal">Sign In</button>     
+                                            <button class="btn btn-primary btn-signin">Sign In</button>     
                                             <button class="btn btn-primary btn-signup" >Sign Up</button></p>
                                 </div>
                             </div>
@@ -755,66 +755,69 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                         <div class="col-sm-2">
                                         </div>
                                         <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-primary btn-sm">
+                                            <button type="submit" class="btn btn-primary btn-sm" id="btn-login-submit">
                                                 Submit</button>
                                             <a href="javascript:;">Forgot your password?</a>
                                         </div>
                                     </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane" id="Registration">
-                                    <form role="form" class="form-horizontal">
-                                    <div class="form-group">
-                                        <label for="email" class="col-sm-2 control-label">
-                                            Name</label>
-                                        <div class="col-sm-10">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <select class="form-control">
-                                                        <option>Mr.</option>
-                                                        <option>Ms.</option>
-                                                        <option>Mrs.</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control" placeholder="Name" />
+
+                                <form name="frmRegistration" method="POST" action="{{ url('userRegistration') }}">
+                                    <div class="tab-pane" id="Registration">
+                                        <form role="form" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">
+                                                Name</label>
+                                            <div class="col-sm-10">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <select class="form-control" name="lstSalutation" id="lstSalutation">
+                                                            <option>Mr.</option>
+                                                            <option>Ms.</option>
+                                                            <option>Mrs.</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" placeholder="Name" name="txtName" id="txtName" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email" class="col-sm-2 control-label">
-                                            Email</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="emailaddress" placeholder="Email" />
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">
+                                                Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="emailaddress" name="emailaddress" placeholder="Email" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mobile" class="col-sm-2 control-label">
-                                            Mobile</label>
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="mobile" placeholder="Mobile" />
+                                        <div class="form-group">
+                                            <label for="mobile" class="col-sm-2 control-label">
+                                                Mobile</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="mobile" name="mobile" placeholder="Mobile" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="col-sm-2 control-label">
-                                            Password</label>
-                                        <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="password" placeholder="Password" />
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-2 control-label">
+                                                Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-2">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary btn-sm" id="btn-registraton-save">
+                                                    Save & Continue</button>
+                                                <button type="button" class="btn btn-default btn-sm" id="btn-registration-cancel">
+                                                    Cancel</button>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-10">
-                                            <button type="button" class="btn btn-primary btn-sm">
-                                                Save & Continue</button>
-                                            <button type="button" class="btn btn-default btn-sm">
-                                                Cancel</button>
-                                        </div>
+                                        </form>
                                     </div>
-                                    </form>
-                                </div>
+                                </form>
                             </div>
                             <div id="OR" class="hidden-xs">
                                 OR</div>
@@ -867,12 +870,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </html>
 <script>
     $(document).ready(function(){
-        $('#btn-signup').click(function(){
-            console.log('sdsadas')
+        $('.btn-signin').click(function(){
+            
+            $('#modal-login').addClass('active');
+            $('#modal-signup').removeClass('active');
+            $('#Login').css('display','block');
+            $('#Registration').css('display','none');
+            $('#myModal').modal();
+            
+        });
+
+        $('.btn-signup').click(function(){
+            
             $('#modal-login').removeClass('active')
-            $('#modal-login').removeClass('active')
-            $('#myModal').removeClass('fade');
-            $('#myModal').css('display','block');
+            $('#modal-signup').addClass('active')
+            $('#Login').css('display','none');
+            $('#Registration').css('display','block');
+            $('#myModal').modal();
+            
         });
     });
 </script>
